@@ -32,10 +32,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Accessibility
 # Alignments
 # Clearings
-# Widgets
 # Content
 	## Posts and pages
 	## Comments
+# Widgets
 # Infinite scroll
 # Media
 	## Captions
@@ -268,14 +268,50 @@ optgroup,
 textarea {
 	color: #404040;
 	font-family: "Roboto", "Lucida Grande", "Lucida Sans Unicode", Geneva, Arial, sans-serif;
-	font-size: 16px;
-	font-size: 1rem;
+	font-size: 14.4px;
+	font-size: 0.9rem;
 	line-height: 1.5;
+}
+
+@media screen and (min-width: 700px) {
+	body,
+	button,
+	input,
+	select,
+	optgroup,
+	textarea {
+		font-size: 16px;
+		font-size: 1rem;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-family: "Roboto Slab", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.6em;
+}
+
+h3 {
+	font-size: 2.2em;
+}
+
+h4 {
+	font-size: 2em;
+}
+
+h5 {
+	font-size: 1.8em;
+}
+
+h6 {
+	font-size: 1.6em;
 }
 
 p {
@@ -701,20 +737,21 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-.widget {
-	margin: 0 0 1.5em;
-	/* Make sure select elements fit in widgets. */
-}
-
-.widget select {
-	max-width: 100%;
-}
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Global layouts
+--------------------------------------------------------------*/
+.site-content {
+	padding: 1em;
+}
+
+@media screen and (min-width: 600px) {
+	.site-content {
+		padding: 2em;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -750,6 +787,18 @@ a:hover, a:active {
 
 .bypostauthor {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
 }
 
 /*--------------------------------------------------------------
