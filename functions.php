@@ -72,6 +72,43 @@ endif;
 add_action( 'after_setup_theme', 'sdtheme_setup' );
 
 /**
+ * Register custom fonts.
+ */
+function sdtheme_fonts_url() {
+    $fonts_url = '';
+
+    /*
+     * Translators: If there are characters in your language that are not
+     * supported by Roboto and Roboto Slab, translate this to 'off'. Do not translate
+     * into your own language.
+     */
+    $roboto = _x( 'on', 'Roboto font: on or off', 'sdtheme' );
+    $roboto_slab = _x( 'on', 'Roboto Slab font: on or off', 'sdtheme' );
+
+    $font_families = array();
+
+    if ( 'off' !== $roboto ) {
+        $font_families[] = 'Roboto:400,400i,500,500i,900,900i';
+    };
+
+    if ( 'off' !== $roboto_slab ) {
+        $font_families[] = 'Roboto Slab:400,700';
+    };
+
+    if ( in_array( 'on', array($roboto, $roboto_slab)) ) {
+
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin,latin-ext' ),
+        );
+
+        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+    }
+
+    return esc_url_raw( $fonts_url );
+}
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -106,7 +143,7 @@ add_action( 'widgets_init', 'sdtheme_widgets_init' );
  */
 function sdtheme_scripts() {
     // Enqueue Google Fonts: Roboto and Roboto Slab
-    wp_enqueue_style('sdtheme-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400i,500,500i,900,900i');
+    wp_enqueue_style('sdtheme-fonts', sdtheme_fonts_url());
 
 	wp_enqueue_style( 'sdtheme-style', get_stylesheet_uri() );
 
