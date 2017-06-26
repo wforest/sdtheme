@@ -105,6 +105,9 @@ add_action( 'widgets_init', 'sdtheme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sdtheme_scripts() {
+    // Enqueue Google Fonts: Roboto and Roboto Slab
+    wp_enqueue_style('sdtheme-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400i,500,500i,900,900i');
+
 	wp_enqueue_style( 'sdtheme-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'sdtheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
