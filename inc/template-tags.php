@@ -39,38 +39,19 @@ function sdtheme_posted_on() {
 	echo '<span class="byline"> ' . $byline . '</span> <span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
     if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-        echo ' <span class="comments-link">';
-        comments_popup_link(
-            sprintf(
-                wp_kses(
-                /* translators: %s: post title */
-                    __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sdtheme' ),
-                    array(
-                        'span' => array(
-                            'class' => array(),
-                        ),
-                    )
-                ),
-                get_the_title()
-            )
-        );
+        echo ' <span class="comments-link"><span class="extra">Discussion </span>';
+        /* translators: %s: post title */
+        comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sdtheme' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
         echo '</span>';
     }
 
     edit_post_link(
         sprintf(
-            wp_kses(
-            /* translators: %s: Name of current post. Only visible to screen readers */
-                __( 'Edit <span class="screen-reader-text">%s</span>', 'sdtheme' ),
-                array(
-                    'span' => array(
-                        'class' => array(),
-                    ),
-                )
-            ),
-            get_the_title()
+        /* translators: %s: Name of current post */
+            esc_html__( 'Edit %s', 'sdtheme' ),
+            the_title( '<span class="screen-reader-text">"', '"</span>', false )
         ),
-        ' <span class="edit-link">',
+        ' <span class="edit-link"><span class="extra">Admin </span>',
         '</span>'
     );
 }
@@ -111,11 +92,11 @@ function sdtheme_the_category_list() {
  */
 function sdtheme_post_navigation() {
     the_post_navigation( array(
-        'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'humescores' ) . '</span> ' .
-            '<span class="screen-reader-text">' . __( 'Next post:', 'humescores' ) . '</span> ' .
+        'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'sdtheme' ) . '</span> ' .
+            '<span class="screen-reader-text">' . __( 'Next post:', 'sdtheme' ) . '</span> ' .
             '<span class="post-title">%title</span>',
-        'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'humescores' ) . '</span> ' .
-            '<span class="screen-reader-text">' . __( 'Previous post:', 'humescores' ) . '</span> ' .
+        'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'sdtheme' ) . '</span> ' .
+            '<span class="screen-reader-text">' . __( 'Previous post:', 'sdtheme' ) . '</span> ' .
             '<span class="post-title">%title</span>',
     ));
 }
