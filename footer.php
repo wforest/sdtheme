@@ -14,6 +14,16 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+
+        <nav class="social-menu">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'menu-2',
+                'menu_id'        => 'social-menu',
+            ) );
+            ?>
+        </nav><!-- .social-menu -->
+
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sdtheme' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
