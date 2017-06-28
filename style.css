@@ -753,6 +753,14 @@ a:hover, a:active {
 	color: #a70d22;
 }
 
+.pagination .prev .icon {
+	margin-right: 1em;
+}
+
+.pagination .next .icon {
+	margin-left: 1em;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -1779,15 +1787,60 @@ button.dropdown-toggle {
 	position: relative;
 	padding: 1em;
 	font-family: "Roboto", "Lucida Grande", "Lucida Sans Unicode", Geneva, Arial, sans-serif;
-	color: #ffffff;
+	color: #fff;
 	background-color: #00295e;
 	text-align: center;
+}
+
+.site-footer a {
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+}
+
+.site-footer a:hover, .site-footer a:focus {
+	text-decoration: underline;
 }
 
 @media screen and (min-width: 600px) {
 	.site-footer {
 		padding: 1em 2em;
 	}
+}
+
+.site-footer__wrap {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 900px) {
+	.site-footer__wrap {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+	}
+}
+
+.site-info {
+	margin: 1em 0 1em auto;
+	-ms-flex-item-align: center;
+	    align-self: center;
+}
+
+@media screen and (min-width: 900px) {
+	.site-info {
+		text-align: right;
+	}
+	.site-info span {
+		display: block;
+	}
+}
+
+.social-menu {
+	margin: 1em 0;
 }
 
 .social-menu ul {
@@ -1797,6 +1850,8 @@ button.dropdown-toggle {
 	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -1807,10 +1862,12 @@ button.dropdown-toggle {
 	padding: .5em 1em;
 	color: white;
 	text-decoration: none;
+	opacity: .6;
 }
 
 .social-menu ul a:hover, .social-menu ul a:focus {
 	text-decoration: underline;
+	opacity: 1;
 }
 
 /*--------------------------------------------------------------
@@ -2245,6 +2302,50 @@ object {
 	margin: 0;
 	font-family: "Roboto", "Lucida Grande", "Lucida Sans Unicode", Geneva, Arial, sans-serif;
 	border: none;
+}
+
+/*--------------------------------------------------------------
+## Icons
+--------------------------------------------------------------*/
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1em;
+	position: relative;
+	top: -0.0625em;
+	vertical-align: middle;
+	width: 1em;
+}
+
+.svg-fallback {
+	display: none;
+}
+
+.no-svg .svg-fallback {
+	display: inline-block;
+}
+
+.no-svg .svg-fallback.icon-arrow-long-left:before {
+	content: "←";
+}
+
+.no-svg .svg-fallback.icon-arrow-long-right:before {
+	content: "→";
+}
+
+.no-svg .social-menu a {
+	height: auto;
+	width: auto;
+}
+
+.no-svg .social-menu li a .screen-reader-text {
+	clip: auto;
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	height: auto;
+	position: relative !important;
+	width: auto;
 }
 
 /*# sourceMappingURL=../sdtheme/sass/maps/style.css.map */

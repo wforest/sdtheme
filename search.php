@@ -41,8 +41,8 @@ endif; ?>
             endwhile;
 
             the_posts_pagination( array(
-                'prev_text' => __( 'Previous', 'sdtheme' ),
-                'next_text' => __( 'Next', 'sdtheme' ),
+                'prev_text' => sdtheme_get_svg( array( 'icon' => 'arrow-left' ) ) . __( 'Previous', 'sdtheme' ),
+                'next_text' => __( 'Next', 'sdtheme' ) . sdtheme_get_svg( array( 'icon' => 'arrow-right' ) ),
                 'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'sdtheme' ) . '</span>',
             ));
 
