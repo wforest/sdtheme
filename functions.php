@@ -41,7 +41,8 @@ function sdtheme_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-    add_image_size( 'sdtheme-full-bleed', 2000, 12000, true );
+    add_image_size( 'sdtheme-full-bleed', 2000, 1200, true );
+    add_image_size( 'sdtheme-index-img', 800, 450, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

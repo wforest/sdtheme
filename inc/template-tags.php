@@ -100,3 +100,11 @@ function sdtheme_post_navigation() {
             '<span class="post-title">%title</span>',
     ));
 }
+
+/**
+ *  Customize ellipsis at end of excerpts
+ */
+function sdtheme_excerpt_more( $more ) {
+    return '…';
+}
+add_filter( 'excerpt_more', 'sdtheme_excerpt_more');
