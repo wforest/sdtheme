@@ -77,6 +77,9 @@ function sdtheme_setup() {
         'width' => 90,
         'flex-height' => true,
     ) );
+
+    // Editor Styles
+    add_editor_style( array( 'inc/editor-styles.css', sdtheme_fonts_url() ));
 }
 endif;
 add_action( 'after_setup_theme', 'sdtheme_setup' );
